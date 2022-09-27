@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProductResponse } from '../static';
+import { UserResponse } from '../modals';
 
 @Injectable({ providedIn: 'root' })
-export class DataService {
+export class UserDataService {
   constructor(private http: HttpClient) {}
 
-  getTableData(param: any): Observable<ProductResponse> {
-    return this.http.get<ProductResponse>('https://dummyjson.com/products');
+  getUserData(param: any): Observable<UserResponse> {
+    return this.http.get<UserResponse>('https://dummyjson.com/products');
   }
 }

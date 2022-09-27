@@ -1,4 +1,4 @@
-export interface Product {
+export interface User {
   id: number;
   title: string;
   description: string;
@@ -12,9 +12,9 @@ export interface Product {
   images: string[];
 }
 
-export interface ProductResponse {
+export interface UserResponse {
   limit: number;
-  products: Product[];
+  products: User[];
   skip: number;
   total: number;
 }
