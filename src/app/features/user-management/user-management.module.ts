@@ -4,6 +4,7 @@ import { UserManagementRoutingModule } from './user-management.routing.module';
 import { UserDataTableComponent } from './components/user-data-table/user-data-table.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { UserManagementComponent } from './user-management.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
     AgGridModule,
     HttpClientModule,
   ],
-  declarations: [UserDataTableComponent],
+  declarations: [UserManagementComponent, UserDataTableComponent],
 })
 export class UserManagementModule {}

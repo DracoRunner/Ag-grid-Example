@@ -21,7 +21,6 @@ export class UserDataTableComponent implements OnInit {
   ngOnInit(): void {
     this.gridOptions = {
       rowModelType: 'infinite',
-      columnDefs: gridColumn,
       defaultColDef: {
         resizable: true,
         sortable: true,
@@ -32,7 +31,6 @@ export class UserDataTableComponent implements OnInit {
         suppressMenu: true,
       },
       rowData: [],
-      onGridReady: this.onGridReady,
       cacheBlockSize: 30,
       maxConcurrentDatasourceRequests: 2,
       infiniteInitialRowCount: 0,
@@ -41,6 +39,8 @@ export class UserDataTableComponent implements OnInit {
       defaultCsvExportParams: {
         fileName: 'MT Table',
       },
+      onGridReady: this.onGridReady,
+      columnDefs: gridColumn,
       onDragStopped: (event: DragStoppedEvent<any>) => {
         console.log(event.columnApi.getColumnState());
       },
