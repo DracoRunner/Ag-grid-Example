@@ -63,6 +63,7 @@ export class UserDataTableComponent implements OnInit {
     };
     params.api.setDatasource(dataSource);
   };
+
   onBtnExport() {
     console.log('onBtnExport');
     this.gridOptions.api.exportDataAsCsv();
