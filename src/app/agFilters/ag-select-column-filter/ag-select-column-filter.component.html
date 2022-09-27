@@ -1,8 +1,0 @@
-<select
-  class="ag-picker-field-display"
-  [(ngModel)]="currentValue"
-  (ngModelChange)="onChange()"
->
-  <option value=""></option>
-  <option *ngFor="let c of options" [ngValue]="c">{{ c }}</option>
-</select>

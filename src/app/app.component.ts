@@ -39,24 +39,35 @@ export class AppComponent implements OnInit {
       infiniteInitialRowCount: 0,
       maxBlocksInCache: 2,
       suppressDragLeaveHidesColumns: true,
+      defaultCsvExportParams: {
+        fileName: 'MT Table',
+      },
       onDragStopped: (event: DragStoppedEvent<any>) => {
         console.log(event.columnApi.getColumnState());
       },
+      onFirstDataRendered: (params: any) => {
+        params.api.sizeColumnsToFit();
+      },
     };
   }
+
   onGridReady = (params: any) => {
     this.griApi = params.api;
     const dataSource = {
       getRows: (param: IGetRowsParams) => {
         this.service.getTableData(param).subscribe((data) => {
           const { products = [] } = data;
-          return param.successCallback(products);
+          param.successCallback(products);
+          params.api.sizeColumnsToFit();
         });
       },
     };
     params.api.setDatasource(dataSource);
-    params.api.sizeColumnsToFit();
   };
+  onBtnExport() {
+    console.log('onBtnExport');
+    this.gridOptions.api.exportDataAsCsv();
+  }
 }
 
 const gridColumn: ColDef[] = [
@@ -86,10 +97,5 @@ const gridColumn: ColDef[] = [
     filter: 'agTextColumnFilter',
     headerName: 'brand',
     field: 'brand',
-  },
-  {
-    filter: false,
-    headerName: 'Images',
-    field: 'images',
   },
 ];
