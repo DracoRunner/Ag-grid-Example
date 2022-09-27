@@ -9,7 +9,7 @@ import { AgSelectColumnFilterComponent } from './agFilters/ag-select-column-filt
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AgGridModule, HttpClientModule],
-  declarations: [AppComponent, AgSelectColumnFilterComponent],
-  bootstrap: [AppComponent],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent, AgSelectColumnFilterComponent],
 })
 export class AppModule {}
