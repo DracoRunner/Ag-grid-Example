@@ -1,5 +1,10 @@
-:host{
+:host {
   display: grid;
   grid-template-rows: 150px 1fr 100px;
   height: 100%;
+}
+
+:host > header {
+  display: grid;
+  grid-template-rows: 100px 50px;
 }
